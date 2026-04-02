@@ -1,10 +1,10 @@
-/* --- 1. Reset & Variables (全ページ共通) --- */
+/* --- 1. Variables & Reset --- */
 :root {
     --bg-color: #ffffff;
     --text-main: #111111;
     --text-sub: #666666;
-    --accent: #d40000; /* ロゴの赤 */
-    --gold: #d4af37;   /* ファンクラブの金 */
+    --accent: #d40000;
+    --gold: #d4af37;
     --gray-light: #f5f5f7;
     --font-main: 'Noto Sans JP', sans-serif;
     --font-en: 'Montserrat', sans-serif;
@@ -12,88 +12,84 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { 
-    font-family: var(--font-main); 
-    font-weight: 300; 
-    line-height: 1.8; 
-}
+body { font-family: var(--font-main); font-weight: 300; line-height: 1.8; color: var(--text-main); background-color: #fff; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-/* --- 2. Header & Nav (基本は白) --- */
+/* --- 2. Header & Footer (共通) --- */
 .site-header { padding: 20px 0; width: 100%; background: #fff; position: relative; z-index: 100; }
 .flex-header { display: flex; justify-content: space-between; align-items: flex-start; }
 .logo img { height: 200px; width: auto; display: block; }
 .main-nav { margin-top: 40px; }
 .main-nav ul { display: flex; list-style: none; gap: 40px; }
-.main-nav a { 
-    color: var(--text-main); text-decoration: none; font-size: 0.8rem; 
-    letter-spacing: 3px; font-weight: 700; transition: 0.3s; position: relative;
-}
+.main-nav a { color: var(--text-main); text-decoration: none; font-size: 0.8rem; letter-spacing: 3px; font-weight: 700; transition: 0.3s; position: relative; }
 .main-nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--accent); transition: 0.3s; }
 .main-nav a:hover::after { width: 100%; }
 .nav-contact { color: var(--accent) !important; border: 2px solid var(--accent); padding: 10px 25px; }
 
-/* --- 3. Index & Works Specific (白背景ページ用のルール) --- */
-/* index(#home) と works(.page-works) の時だけ適用 */
-#home, .page-works { background-color: #fff; color: var(--text-main); }
-#home .site-header, .page-works .site-header { background-color: #fff; }
-#home .site-footer, .page-works .site-footer { background-color: #fff; border-top: 1px solid #eee; padding: 100px 0; text-align: center; color: #999; }
+.site-footer { padding: 100px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; letter-spacing: 4px; background: #fff; }
 
-/* 共通セクション余白 */
-.hero, .about-section, .services, .works-preview, .contact-section, .works-archive { padding: 140px 0; }
+/* --- 3. Index & Works Layout (白ページ共通設定) --- */
+.hero, .about-section, .services, .works-preview, .contact-section, .works-archive { padding: 120px 0; }
 .section-sub-title { text-align: center; font-size: 0.9rem; color: var(--accent); letter-spacing: 6px; font-weight: 700; margin-bottom: 20px; }
 .section-title { text-align: center; font-size: 2.5rem; letter-spacing: 10px; font-weight: 700; margin-bottom: 80px; }
+.section-title-left { font-size: 2.5rem; letter-spacing: 10px; font-weight: 700; margin-bottom: 30px; }
 
-/* Buttons (白ページ用) */
+/* Buttons */
 .btn-primary { background: var(--text-main); color: #fff; padding: 20px 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
 .btn-primary:hover { background: var(--accent); }
 .btn-secondary { border: 1px solid #ccc; color: var(--text-main); padding: 20px 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
-.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-/* --- 4. Works Page Details (実績ページのレイアウト) --- */
-.works-detail-list { display: flex; flex-direction: column; gap: 120px; margin-top: 60px; }
-.works-detail-item { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-.video-container { position: relative; padding-top: 56.25%; background: #000; }
+/* --- 4. Works Page Details (実績ページ・レイアウト修復) --- */
+.works-detail-list { display: flex; flex-direction: column; gap: 150px; margin-top: 60px; }
+.works-detail-item { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
+
+/* 動画 */
+.video-container { position: relative; padding-top: 56.25%; background: #000; width: 100%; }
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-.web-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; margin-top: 40px; }
-.web-device-set { position: relative; }
-.pc-view { width: 100%; height: auto; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-radius: 4px; }
-.sp-view { position: absolute; bottom: -20px; right: -10px; width: 25%; border: 3px solid #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-/* Swiper */
-.thumbnail-swiper { width: 100%; padding-bottom: 70px !important; overflow: hidden; }
-.thumbnail-swiper .swiper-slide img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; }
-
-/* --- 5. Fanclub Specific (黒背景ページ専用) --- */
-/* .page-fanclub がついている時だけ、中身を「黒モード」に上書きする */
-.page-fanclub { background-color: #0a0a0a !important; color: #ffffff !important; }
-.page-fanclub .site-header { background-color: #0a0a0a; }
-.page-fanclub .main-nav a { color: #ffffff; }
-.page-fanclub .main-nav a::after { background: var(--gold); }
-.page-fanclub .nav-contact { border-color: var(--gold); color: var(--gold) !important; }
-.page-fanclub .site-footer { background-color: #0a0a0a; border-top: 1px solid #222; }
-
-/* Fanclub Contents */
-.fanclub-hero { padding: 150px 0 100px; text-align: center; }
-.gold-text { color: var(--gold); letter-spacing: 5px; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 20px; }
-.fanclub-main-title { 
-    font-size: clamp(3rem, 8vw, 6rem); font-family: var(--font-en); letter-spacing: 15px; margin: 20px 0; font-weight: 700; 
-    background: linear-gradient(45deg, #b8860b, var(--gold), #b8860b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+/* HP制作セクション (LP画像位置・重なり修復) */
+.section-divided { display: block !important; }
+.web-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 80px; margin-top: 50px; }
+.web-device-set { position: relative; width: 100%; }
+.pc-view { width: 100%; height: auto; display: block; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 4px; }
+.sp-view { 
+    position: absolute; bottom: -30px; right: -20px; 
+    width: 28%; height: auto; display: block; 
+    border: 4px solid #fff; border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 10;
 }
+
+/* サムネイル (Swiper サイズ調整) */
+.thumbnail-swiper { width: 100%; padding: 20px 0 80px !important; overflow: visible !important; } /* はみ出しを許容して大きく見せる */
+.thumbnail-swiper .swiper-slide { transition: 0.4s; opacity: 0.4; }
+.thumbnail-swiper .swiper-slide-active { opacity: 1; transform: scale(1.1); z-index: 10; } /* 中央を大きく */
+.thumbnail-swiper .swiper-slide img { 
+    width: 100%; aspect-ratio: 16 / 9; object-fit: cover; 
+    border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+}
+
+/* --- 5. Fanclub Specific (黒背景・完全分離) --- */
+body.page-fanclub { background-color: #0a0a0a !important; color: #ffffff !important; }
+body.page-fanclub .site-header { background-color: #0a0a0a; }
+body.page-fanclub .main-nav a { color: #ffffff; }
+body.page-fanclub .main-nav a::after { background: var(--gold); }
+body.page-fanclub .nav-contact { border-color: var(--gold); color: var(--gold) !important; }
+body.page-fanclub .site-footer { background-color: #0a0a0a; border-top: 1px solid #222; }
+
+.fanclub-hero { padding: 150px 0 100px; text-align: center; }
+.fanclub-main-title { font-size: clamp(3rem, 8vw, 6rem); font-family: var(--font-en); font-weight: 700; background: linear-gradient(45deg, #b8860b, var(--gold), #b8860b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
 .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1100px; margin: 60px auto 0; }
-.plan-card { background: #111; border: 1px solid #333; padding: 50px 30px; border-radius: 12px; display: flex; flex-direction: column; text-align: center; }
-.plan-card.featured { border: 2px solid var(--gold); transform: translateY(-15px); }
+.plan-card { background: #111; border: 1px solid #333; padding: 50px 30px; border-radius: 12px; text-align: center; display: flex; flex-direction: column; }
+.plan-card.featured { border: 2px solid var(--gold); transform: translateY(-15px); box-shadow: 0 20px 50px rgba(212,175,55,0.15); }
+.btn-gold { background: var(--gold); color: #000; padding: 20px; text-decoration: none; font-weight: 700; border-radius: 6px; display: block; margin-top: auto; }
+.btn-gold-sub { border: 2px solid var(--gold); color: var(--gold); padding: 18px; text-decoration: none; font-weight: 700; border-radius: 6px; display: block; margin-top: auto; background: rgba(212,175,55,0.1); }
 
-/* Fanclub Buttons */
-.btn-gold { display: block; padding: 20px; background: var(--gold); color: #000; text-decoration: none; font-weight: 700; border-radius: 6px; }
-.btn-gold-sub { display: block; padding: 18px; background: rgba(212, 175, 55, 0.15); color: var(--gold); border: 2px solid var(--gold); text-decoration: none; font-weight: 700; border-radius: 6px; }
-
-/* --- 6. Responsive (共通) --- */
-@media (max-width: 900px) {
-    .flex-header { flex-direction: column; align-items: center; }
-    .main-nav { margin-top: 20px; }
-    .main-nav ul { gap: 20px; }
-    .works-detail-item, .plan-grid { grid-template-columns: 1fr; gap: 30px; }
-    .plan-card.featured { transform: translateY(0); }
+/* --- 6. Responsive --- */
+@media (max-width: 1024px) {
     .logo img { height: 120px; }
+    .works-detail-item, .plan-grid { grid-template-columns: 1fr; gap: 50px; }
+    .web-preview-grid { grid-template-columns: 1fr; }
+    .sp-view { width: 35%; right: 0; }
+    .plan-card.featured { transform: translateY(0); }
 }

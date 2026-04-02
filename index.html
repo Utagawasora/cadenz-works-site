@@ -1,112 +1,99 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadenz Works | Strategy × Creativity</title>
-    <meta name="description" content="現役広告コンサルタントの戦略と藝大卒の感性を融合。数値で導き、感性で形にするクリエイティブ・パートナー。">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@100;300;500;700&display=swap" rel="stylesheet">
-</head>
-<body id="home">
+/* --- 1. Reset & Variables (全ページ共通) --- */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #111111;
+    --text-sub: #666666;
+    --accent: #d40000; /* ロゴの赤 */
+    --gold: #d4af37;   /* ファンクラブの金 */
+    --gray-light: #f5f5f7;
+    --font-main: 'Noto Sans JP', sans-serif;
+    --font-en: 'Montserrat', sans-serif;
+}
 
-    <header class="site-header">
-        <div class="container flex-header">
-            <h1 class="logo">
-                <a href="index.html"><img src="/images/logo.png" alt="Cadenz Works"></a>
-            </h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#service">SERVICE</a></li>
-                    <li><a href="works.html">WORKS</a></li>
-                    <li><a href="fanclub.html">FUNKLOVE</a></li>
-                    <li><a href="#contact" class="nav-contact">CONTACT</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+    font-family: var(--font-main); 
+    font-weight: 300; 
+    line-height: 1.8; 
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <span class="fade-in-up sub-copy">Strategy_Creativity_Integrate</span>
-                    <h2 class="fade-in-up-delay-1 main-copy">数値で導き、<br>感性で形にする。</h2>
-                    <p class="fade-in-up-delay-2 description">現役広告コンサルタントの戦略的思考と、藝大卒のクリエイティビティ。<br>ビジネスの「届ける力」と「魅せる力」を一貫して構築します。</p>
-                    <div class="fade-in-up-delay-3 cta-wrap">
-                        <a href="#service" class="btn-primary">View Services</a>
-                        <a href="works.html" class="btn-secondary">View Works</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* --- 2. Header & Nav (基本は白) --- */
+.site-header { padding: 20px 0; width: 100%; background: #fff; position: relative; z-index: 100; }
+.flex-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.logo img { height: 200px; width: auto; display: block; }
+.main-nav { margin-top: 40px; }
+.main-nav ul { display: flex; list-style: none; gap: 40px; }
+.main-nav a { 
+    color: var(--text-main); text-decoration: none; font-size: 0.8rem; 
+    letter-spacing: 3px; font-weight: 700; transition: 0.3s; position: relative;
+}
+.main-nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--accent); transition: 0.3s; }
+.main-nav a:hover::after { width: 100%; }
+.nav-contact { color: var(--accent) !important; border: 2px solid var(--accent); padding: 10px 25px; }
 
-        <section id="about" class="about-section">
-            <div class="container">
-                <p class="section-sub-title">STORY & VISION</p>
-                <h2 class="section-title-left">ABOUT</h2>
-                <div class="about-text-main">
-                    <h3>数値の「論理」と、芸術の「感性」。<br>その境界線をデザインする。</h3>
-                    <p>
-                        東京藝術大学声楽科を卒業後、現在は広告コンサルタントとして活動。<br>
-                        一見正反対に思える「芸術」と「ビジネス」の二つの世界を横断しながら、ターゲットの心に深く刺さるクリエイティブを追求しています。
-                    </p>
-                    <div class="about-points">
-                        <div class="point">
-                            <span class="point-tag">Marketing</span>
-                            <p>現役コンサルとしてGoogle広告等の運用戦略を立案。CPAの最適化など、徹底して「数値」に基づく成果を追求します。</p>
-                        </div>
-                        <div class="point">
-                            <span class="point-tag">Creative</span>
-                            <p>藝大で培った音楽的素養と色彩感覚を武器に。ビジネスに「温度」を宿し、数値以上の価値を生み出します。</p>
-                        </div>
-                    </div>
-                    <p class="about-mission">
-                        私のミッションは、<strong>「戦略的に設計された表現」で、あなたのビジネスを加速させること</strong>です。
-                    </p>
-                </div>
-            </div>
-        </section>
+/* --- 3. Index & Works Specific (白背景ページ用のルール) --- */
+/* index(#home) と works(.page-works) の時だけ適用 */
+#home, .page-works { background-color: #fff; color: var(--text-main); }
+#home .site-header, .page-works .site-header { background-color: #fff; }
+#home .site-footer, .page-works .site-footer { background-color: #fff; border-top: 1px solid #eee; padding: 100px 0; text-align: center; color: #999; }
 
-        <section id="service" class="services">
-            <div class="container">
-                <p class="section-sub-title">WHAT WE DO</p>
-                <h2 class="section-title">SERVICES</h2>
-                <div class="service-grid">
-                    <div class="service-card">
-                        <span class="num">01</span><div class="icon">📈</div>
-                        <h3>Marketing</h3>
-                        <p>広告運用・戦略立案。成果に直結するマーケティングを提供します。</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="num">02</span><div class="icon">💻</div>
-                        <h3>Development</h3>
-                        <p>成果を逆算した高精度なサイト・LP制作。WordPress実装も対応。</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="num">03</span><div class="icon">🎨</div>
-                        <h3>Creative</h3>
-                        <p>映像編集・音楽制作。藝大卒の感性でブランド価値を最大化します。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* 共通セクション余白 */
+.hero, .about-section, .services, .works-preview, .contact-section, .works-archive { padding: 140px 0; }
+.section-sub-title { text-align: center; font-size: 0.9rem; color: var(--accent); letter-spacing: 6px; font-weight: 700; margin-bottom: 20px; }
+.section-title { text-align: center; font-size: 2.5rem; letter-spacing: 10px; font-weight: 700; margin-bottom: 80px; }
 
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <p class="section-sub-title">GET IN TOUCH</p>
-                <h2 class="section-title">CONTACT</h2>
-                <div class="contact-brief">
-                    <p>お仕事のご依頼、ご相談は下記よりお気軽にお問い合わせください。</p>
-                    <a href="mailto:info@utagawastudio.com" class="contact-mail">info@utagawastudio.com</a>
-                </div>
-            </div>
-        </section>
-    </main>
+/* Buttons (白ページ用) */
+.btn-primary { background: var(--text-main); color: #fff; padding: 20px 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
+.btn-primary:hover { background: var(--accent); }
+.btn-secondary { border: 1px solid #ccc; color: var(--text-main); padding: 20px 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    <footer class="site-footer">
-        <div class="container"><p>&copy; 2026 CADENZ WORKS. All Rights Reserved.</p></div>
-    </footer>
-</body>
-</html>
+/* --- 4. Works Page Details (実績ページのレイアウト) --- */
+.works-detail-list { display: flex; flex-direction: column; gap: 120px; margin-top: 60px; }
+.works-detail-item { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+.video-container { position: relative; padding-top: 56.25%; background: #000; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.web-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; margin-top: 40px; }
+.web-device-set { position: relative; }
+.pc-view { width: 100%; height: auto; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-radius: 4px; }
+.sp-view { position: absolute; bottom: -20px; right: -10px; width: 25%; border: 3px solid #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+
+/* Swiper */
+.thumbnail-swiper { width: 100%; padding-bottom: 70px !important; overflow: hidden; }
+.thumbnail-swiper .swiper-slide img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; }
+
+/* --- 5. Fanclub Specific (黒背景ページ専用) --- */
+/* .page-fanclub がついている時だけ、中身を「黒モード」に上書きする */
+.page-fanclub { background-color: #0a0a0a !important; color: #ffffff !important; }
+.page-fanclub .site-header { background-color: #0a0a0a; }
+.page-fanclub .main-nav a { color: #ffffff; }
+.page-fanclub .main-nav a::after { background: var(--gold); }
+.page-fanclub .nav-contact { border-color: var(--gold); color: var(--gold) !important; }
+.page-fanclub .site-footer { background-color: #0a0a0a; border-top: 1px solid #222; }
+
+/* Fanclub Contents */
+.fanclub-hero { padding: 150px 0 100px; text-align: center; }
+.gold-text { color: var(--gold); letter-spacing: 5px; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 20px; }
+.fanclub-main-title { 
+    font-size: clamp(3rem, 8vw, 6rem); font-family: var(--font-en); letter-spacing: 15px; margin: 20px 0; font-weight: 700; 
+    background: linear-gradient(45deg, #b8860b, var(--gold), #b8860b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+}
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1100px; margin: 60px auto 0; }
+.plan-card { background: #111; border: 1px solid #333; padding: 50px 30px; border-radius: 12px; display: flex; flex-direction: column; text-align: center; }
+.plan-card.featured { border: 2px solid var(--gold); transform: translateY(-15px); }
+
+/* Fanclub Buttons */
+.btn-gold { display: block; padding: 20px; background: var(--gold); color: #000; text-decoration: none; font-weight: 700; border-radius: 6px; }
+.btn-gold-sub { display: block; padding: 18px; background: rgba(212, 175, 55, 0.15); color: var(--gold); border: 2px solid var(--gold); text-decoration: none; font-weight: 700; border-radius: 6px; }
+
+/* --- 6. Responsive (共通) --- */
+@media (max-width: 900px) {
+    .flex-header { flex-direction: column; align-items: center; }
+    .main-nav { margin-top: 20px; }
+    .main-nav ul { gap: 20px; }
+    .works-detail-item, .plan-grid { grid-template-columns: 1fr; gap: 30px; }
+    .plan-card.featured { transform: translateY(0); }
+    .logo img { height: 120px; }
+}
