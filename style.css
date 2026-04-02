@@ -98,4 +98,13 @@ body { background-color: var(--bg-color); color: var(--text-main); font-family: 
     .main-nav ul { gap: 20px; }
     .works-detail-item { grid-template-columns: 1fr; gap: 30px; }
     .contact-mail { font-size: 1.2rem; }
+    /* 実績を交互に配置するスタイル */
+@media (min-width: 901px) {
+    .works-detail-item.inverted {
+        direction: rtl; /* 左右を反転させる */
+    }
+    .works-detail-item.inverted .works-info {
+        direction: ltr; /* 文字の向きは元に戻す */
+    }
+}
 }
