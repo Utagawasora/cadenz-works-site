@@ -80,12 +80,37 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         new Swiper('.thumbnail-swiper', {
-            loop: true, speed: 800, autoplay: { delay: 3000 },
-            slidesPerView: 1.5, spaceBetween: 40, centeredSlides: true,
-            breakpoints: { 768: { slidesPerView: 2.2 }, 1024: { slidesPerView: 2.8 } },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        });
+    loop: true,
+    speed: 800,
+    autoplay: { 
+        delay: 3000,
+        disableOnInteraction: false, 
+    },
+    centeredSlides: true,  // 必ず中央に1枚配置
+    slidesPerView: 1.2,    // スマホでは1枚メインで両端が少し見える
+    spaceBetween: 20,      // 画像間の隙間
+    
+    // PCなどの大きな画面での設定
+    breakpoints: {
+        768: { 
+            slidesPerView: 2.0, 
+            spaceBetween: 30 
+        },
+        1024: { 
+            slidesPerView: 2.5, // 2.5枚にすることで1枚あたりのサイズを巨大に保つ
+            spaceBetween: 40 
+        }
+    },
+    
+    pagination: { 
+        el: '.swiper-pagination', 
+        clickable: true 
+    },
+    navigation: { 
+        nextEl: '.swiper-button-next', 
+        prevEl: '.swiper-button-prev' 
+    },
+});
     </script>
 </body>
 </html>

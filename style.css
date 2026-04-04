@@ -66,11 +66,42 @@ body { font-family: var(--font-main); color: var(--text-main); background: #fff;
 .pc-view { width: 100%; height: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 4px; display: block; }
 .sp-view { position: absolute; bottom: -30px; right: -20px; width: 28%; border: 4px solid #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 10; display: block; }
 
-/* Thumbnail Swiper */
-.thumbnail-swiper { width: 100%; padding: 40px 0 100px !important; overflow: visible !important; }
-.thumbnail-swiper .swiper-slide { transition: 0.5s; opacity: 0.4; }
-.thumbnail-swiper .swiper-slide-active { opacity: 1; transform: scale(1.15); z-index: 10; }
-.thumbnail-swiper .swiper-slide img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+/* --- Thumbnail Swiper (サイズ感と挙動の修正) --- */
+.thumbnail-swiper { 
+    width: 100%; 
+    padding: 40px 0 100px !important; 
+    overflow: hidden !important; /* はみ出しをカットして整える */
+    position: relative;
+}
+
+.thumbnail-swiper .swiper-slide { 
+    transition: 0.5s ease; 
+    opacity: 0.4; 
+    transform: scale(0.9); /* アクティブ以外は少し小さく */
+}
+
+/* 中央に来た画像だけをドーンと大きく、明るく */
+.thumbnail-swiper .swiper-slide-active { 
+    opacity: 1; 
+    transform: scale(1.1); 
+    z-index: 10; 
+}
+
+.thumbnail-swiper .swiper-slide img { 
+    width: 100%; 
+    aspect-ratio: 16/9; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+}
+
+/* ナビボタンの色調整（赤に変更） */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--accent) !important;
+}
+.swiper-pagination-bullet-active {
+    background: var(--accent) !important;
+}
 
 /* --- 6. Fanclub (.page-fanclub) レイアウト --- */
 body.page-fanclub { background-color: #0a0a0a !important; color: #ffffff !important; }
