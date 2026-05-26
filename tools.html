@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MSGW2SCH');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools | CadenzWorks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSGW2SCH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="bg-video-container">
+        <video class="bg-video" src="images/sky.mp4" autoplay loop muted playsinline></video>
+        <div class="bg-video-overlay"></div>
+    </div>
+
+    <div class="heisei-decorations">
+        <div class="welcome-marquee"><marquee scrollamount="5">✨ ーーーキリ番踏み逃げ厳禁！！足跡帳にカキコしていってね！！！ ーーー ✨</marquee></div>
+    </div>
+
+    <div class="site-wrapper">
+        <header class="main-header">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="CadenzWorks" class="site-logo-img">
+            </a>
+            <div class="nav-area">
+                <nav class="nav-links">
+                    <a href="index.html">Top</a>
+                    <a href="about.html">About</a>
+                    <a href="works.html">Works</a>
+                    <a href="funklove.html">FunkLove</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="mode-toggle-container">
+                    <button id="mode-toggle-btn" class="toggle-btn">DARK MODE (??)</button>
+                </div>
+            </div>
+        </header>
+
+        <header class="tools-top-banner">これは動作確認用の「デモ版」です。設定不要で今すぐブラウザ上で試せます。</header>
+
+        <main class="main-content">
+            <h2 class="page-title">TOOLS</h2>
+            <p class="tools-lead-text">BOOTHにて販売・配信中の便利アセットをブラウザ上で手軽にテスト・体験できるWebデモステーションです。</p>
+            
+            <div class="tools-tabs-container">
+                <button class="tool-tab-btn active" data-tool-tab="karaoke">🎤 カラオケリクエスト</button>
+                <button class="tool-tab-btn" data-tool-tab="living-studio">🖼️ Living Studio背景</button>
+                <button class="tool-tab-btn" data-tool-tab="analog-clock">⏰ 配信時計ステーション</button>
+                <button class="tool-tab-btn" data-tool-tab="schedule-generator">📅 配信予定表ジェネレーター</button>
+            </div>
+
+            <div class="page-body">
+                
+                <div id="karaoke" class="tool-tab-panel active">
+                    <h3>Karaoke Request System (Demo)</h3>
+                    <div class="tool-app-box karaoke-box">
+                        <div class="karaoke-two-column">
+                            <div class="karaoke-client-side">
+                                <h4>【リスナー用リクエスト窓口】</h4>
+                                <div class="quick-pick-area">
+                                    <p>💡 ワンクリックで自動入力：</p>
+                                    <div class="quick-buttons">
+                                        <button class="q-btn" data-song="カデンツ・ロック" data-artist="詩川ソラ">🎵 詩川ソラ / カデンツ・ロック</button>
+                                        <button class="q-btn" data-song="シンガーソング・ハイウェイ" data-artist="Takaki">🎵 Takaki / シンガーソング・ハイウェイ</button>
+                                        <button class="q-btn" data-song="インターネット何でも屋のテーマ" data-artist="CadenzWorks">🎵 CadenzWorks / インターネット何でも屋のテーマ</button>
+                                    </div>
+                                </div>
+                                <div class="karaoke-input-form">
+                                    <input type="text" id="karaoke-song" placeholder="曲名">
+                                    <input type="text" id="karaoke-artist" placeholder="アーティスト名">
+                                    <input type="text" id="karaoke-user" placeholder="名前">
+                                    <button id="karaoke-send-btn">リクエスト送信</button>
+                                </div>
+                            </div>
+                            
+                            <div class="karaoke-admin-side">
+                                <div class="obs-ticker-screen">
+                                    <div class="obs-ticker-label">NOW SINGING ≫</div>
+                                    <div id="obs-now-playing" class="obs-ticker-content">待機中...</div>
+                                </div>
+                                <div class="karaoke-dashboard-panel">
+                                    <div class="panel-header">
+                                        <h4>【Dashboard】</h4><button id="karaoke-reset-btn">リセット</button>
+                                    </div>
+                                    <div id="request-list-container" class="request-list-box"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ad-box">
+                            <p>✨ 実際に配信で使いたい！本格的にリスナーと繋がりたい！という方は製品版へ</p>
+                            <a href="https://utagawaya3.booth.pm/items/8349015" target="_blank">BOOTHで製品版をチェックする</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="living-studio" class="tool-tab-panel">
+                    <h3>Living Studio (Trial)</h3>
+                    <div class="tool-app-box living-box">
+                        <div class="living-controls">
+                            <button class="env-btn active" id="env-day-btn">☀️ 昼モード</button>
+                            <button class="env-btn" id="env-night-btn">🌙 夜モード</button>
+                        </div>
+                        <div class="living-stage-window">
+                            <div id="outside-view"></div><div id="room-foreground"></div>
+                            <div class="stage-overlay-text">[OBS Studio Preview Window: 16:9]</div>
+                        </div>
+
+                        <div class="ad-box">
+                            <p>✨ 時間帯でリアルに変わる背景で、あなたの配信をもっと魅力的に！
+                                <br>普段遣いしやすい洋室バージョンもあります</p>
+                            <a href="https://utagawaya3.booth.pm/items/8371571" target="_blank">BOOTHで製品版をチェックする</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="analog-clock" class="tool-tab-panel">
+                    <h3>Broadcast Clock Station</h3>
+                    <div class="tool-app-box clock-box">
+                        <div class="clock-display-area">
+                            <div class="clock-showcase-block">
+                                <h4 class="clock-sub-label">【Classic Analog】</h4>
+                                <div class="html-analog-clock">
+                                    <div class="clock-face-center"></div>
+                                    <div class="hand hour-hand" id="clock-hour-hand"></div>
+                                    <div class="hand minute-hand" id="clock-minute-hand"></div>
+                                    <div class="hand second-hand" id="clock-second-hand"></div>
+                                    <div class="heisei-clock-word-brand">Utagawa</div>
+                                </div>
+                            </div>
+                            <div class="clock-showcase-block">
+                                <h4 class="clock-sub-label">【Cyber Neon Digital】</h4>
+                                <div class="neon-clock-container">
+                                    <div class="neon-date-box" id="neon-date"></div>
+                                    <div class="neon-time-box" id="neon-time"></div>
+                                    <div class="neon-day-box" id="neon-day"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ad-box">
+                            <p>✨ 配信画面をオシャレに彩る時計アセットはこちら！</p>
+                            <a href="https://utagawaya3.booth.pm/" target="_blank">BOOTHで製品版をチェックする</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="schedule-generator" class="tool-tab-panel">
+                    <h3>Weekly Schedule Generator</h3>
+                    <p class="tool-description-text">SNS投稿に最適化された16:9比率の高画質スケジュール表を、ブラウザ上でリアルタイムに作成・保存できます。</p>
+                    
+                    <div class="tool-app-box generator-app-wrapper">
+                        <div class="generator-two-column">
+                            
+                            <div class="generator-settings-side">
+                                <div class="gen-section-header">
+                                    <div class="section-title">基本テキスト</div>
+                                    <button type="button" class="btn-clear" id="btn-clear-all">一括クリア</button>
+                                </div>
+                                <div class="gen-form-group">
+                                    <label for="input-title">メインタイトル</label>
+                                    <input type="text" id="input-title" class="form-control" value="WEEKLY SCHEDULE">
+                                </div>
+                                <div class="gen-form-group">
+                                    <label for="input-period">期間表記</label>
+                                    <input type="text" id="input-period" class="form-control" value="2026.05.18 - 2026.05.24">
+                                </div>
+
+                                <div class="gen-section-header">
+                                    <div class="section-title">右端専用・立ち絵設定</div>
+                                </div>
+                                <div class="gen-form-group">
+                                    <label for="input-avatar" class="file-label-v2">立ち絵（透過画像）を読み込む</label>
+                                    <input type="file" id="input-avatar" accept="image/*" style="display:none;">
+                                </div>
+                                <div id="avatar-controls" style="display:none; background:#f8f9fa; padding:12px; border-radius:6px; margin-bottom:15px; border:1px dashed #ccc;">
+                                    <div class="gen-form-group" style="margin-bottom:10px;">
+                                        <label style="font-size:0.75rem; margin-bottom:2px;">表示倍率 (Scale)</label>
+                                        <input type="range" id="avatar-scale" min="0.3" max="2.5" step="0.02" value="1.0" style="width:100%;">
+                                    </div>
+                                    <div class="gen-form-group" style="margin-bottom:10px;">
+                                        <label style="font-size:0.75rem; margin-bottom:2px;">左右微調整 (X)</label>
+                                        <input type="range" id="avatar-x" min="-300" max="300" step="2" value="0" style="width:100%;">
+                                    </div>
+                                    <div class="gen-form-group" style="margin-bottom:0;">
+                                        <label style="font-size:0.75rem; margin-bottom:2px;">上下微調整 (Y)</label>
+                                        <input type="range" id="avatar-y" min="-300" max="300" step="2" value="0" style="width:100%;">
+                                    </div>
+                                </div>
+
+                                <div class="gen-section-header">
+                                    <div class="section-title">スタイル設定</div>
+                                </div>
+                                <div class="gen-form-group">
+                                    <label>デザインテンプレート (5種)</label>
+                                    <div class="design-select-buttons" id="design-selector">
+                                        <div class="btn-select active" data-value="type-a">Clean</div>
+                                        <div class="btn-select" data-value="type-b">Pop</div>
+                                        <div class="btn-select" data-value="type-c">Cyber</div>
+                                        <div class="btn-select" data-value="type-d">Gothic</div>
+                                        <div class="btn-select" data-value="type-e">Fancy</div>
+                                    </div>
+                                </div>
+                                <div class="gen-form-group">
+                                    <label>カラーバリエーション (10色)</label>
+                                    <div class="color-picker-grid" id="color-selector">
+                                        <div class="btn-color active" data-value="pink" style="background-color: #ff79c6;"></div>
+                                        <div class="btn-color" data-value="blue" style="background-color: #54a0ff;"></div>
+                                        <div class="btn-color" data-value="cyan" style="background-color: #00d2d3;"></div>
+                                        <div class="btn-color" data-value="green" style="background-color: #1dd1a1;"></div>
+                                        <div class="btn-color" data-value="yellow" style="background-color: #feca57;"></div>
+                                        <div class="btn-color" data-value="purple" style="background-color: #9b5de5;"></div>
+                                        <div class="btn-color" data-value="orange" style="background-color: #ff9f43;"></div>
+                                        <div class="btn-color" data-value="red" style="background-color: #ff6b6b;"></div>
+                                        <div class="btn-color" data-value="lime" style="background-color: #10ac84;"></div>
+                                        <div class="btn-color" data-value="monochrome" style="background-color: #57606f;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="gen-section-header">
+                                    <div class="section-title">各曜日のスケジュール</div>
+                                </div>
+                                <div id="dynamic-inputs"></div>
+                                
+                                <div class="gen-section-header">
+                                    <div class="section-title">自由記入欄(左下NOTE枠)</div>
+                                </div>
+                                <div class="gen-form-group">
+                                    <label for="input-free-label">枠見出し</label>
+                                    <input type="text" id="input-free-label" class="form-control" value="NOTE">
+                                </div>
+                                <div class="gen-form-group">
+                                    <label for="input-free-content">内容</label>
+                                    <textarea id="input-free-content" class="form-control" rows="2">#うたがわらいぶ&#13;今週も働くぞ！</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="generator-preview-side">
+                                <div class="preview-scale-wrapper">
+                                    <div id="schedule-card" data-design="type-a" data-color="pink">
+                                        <div id="avatar-layer">
+                                            <img id="schedule-avatar" src="" alt="avatar">
+                                        </div>
+                                        <div class="card-body-wrapper">
+                                            <div class="card-header">
+                                                <div class="card-title" id="view-title">WEEKLY SCHEDULE</div>
+                                                <div class="card-period" id="view-period">2026.05.18 - 2026.05.24</div>
+                                            </div>
+                                            <div class="card-main-layout">
+                                                <div id="view-grid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gen-action-area">
+                                    <button class="btn-save-png" id="btn-download">PNG画像として保存</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ad-box">
+                            <p>✨ もっとカスタマイズしたい！オフライン版で快適に使いたい方は製品版へ</p>
+                            <a href="https://utagawaya3.booth.pm/" target="_blank">BOOTHで製品版をチェックする</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; CadenzWorks All Rights Reserved.</p>
+            <p class="heisei-footer-text">管理人：Takaki / 相互リンク募集中！バナーは直リンク推奨</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
