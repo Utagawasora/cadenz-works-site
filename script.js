@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupTabs(btnSel, panelSel, dataAttr) {
         const btns = document.querySelectorAll(btnSel);
         const panels = document.querySelectorAll(panelSel);
+        if (btns.length === 0) return;
         btns.forEach(btn => btn.addEventListener('click', () => {
             btns.forEach(b => b.classList.remove('active'));
             panels.forEach(p => p.classList.remove('active'));
@@ -61,7 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
     initSlideshow('.slide', '.dot', 'slide-prev', 'slide-next', 'data-slide');
     initSlideshow('.hp-slide', '.hp-dot', 'hp-slide-prev', 'hp-slide-next', 'data-hp-slide');
 
-    /* --- 5. カラオケシステム --- */
+    /* --- 5. CONTACT：メール送信 --- */
+    const contactForm = document.querySelector('.dummy-form');
+    if (contactForm && document.getElementById('name') && document.getElementById('message')) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const msg = document.getElementById('message').value;
+            const subject = encodeURIComponent(`お仕事のご相談・ご依頼: ${name}様より`);
+            const body = encodeURIComponent(`${name}様からのメッセージ:\n\n${msg}`);
+            window.location.href = `mailto:info@cadenzworks.com?subject=${subject}&body=${body}`;
+        });
+    }
+
+    /* --- 6. TOOLS：カラオケシステム --- */
     if (document.getElementById('request-list-container')) {
         const listContainer = document.getElementById('request-list-container');
         const updateDashboardList = () => {
@@ -86,22 +100,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         };
-        document.getElementById('karaoke-send-btn').addEventListener('click', () => {
-            const title = document.getElementById('karaoke-song').value.trim();
-            if (!title) return alert('曲名を入力してください');
-            const newReq = { title, artist: document.getElementById('karaoke-artist').value.trim() || "不明", user: document.getElementById('karaoke-user').value.trim() || "匿名" };
-            const q = JSON.parse(localStorage.getItem('demo_queue') || '[]');
-            q.push(newReq);
-            localStorage.setItem('demo_queue', JSON.stringify(q));
-            document.getElementById('karaoke-song').value = "";
-            alert('リクエスト送信完了！');
-            updateDashboardList();
-        });
-        document.getElementById('karaoke-reset-btn').addEventListener('click', () => {
-            localStorage.removeItem('demo_queue');
-            document.getElementById('obs-now-playing').textContent = "待機中...";
-            updateDashboardList();
-        });
+        const sendBtn = document.getElementById('karaoke-send-btn');
+        if (sendBtn) {
+            sendBtn.addEventListener('click', () => {
+                const title = document.getElementById('karaoke-song').value.trim();
+                if (!title) return alert('曲名を入力してください');
+                const newReq = { title, artist: document.getElementById('karaoke-artist').value.trim() || "不明", user: document.getElementById('karaoke-user').value.trim() || "匿名" };
+                const q = JSON.parse(localStorage.getItem('demo_queue') || '[]');
+                q.push(newReq);
+                localStorage.setItem('demo_queue', JSON.stringify(q));
+                document.getElementById('karaoke-song').value = "";
+                alert('リクエスト送信完了！');
+                updateDashboardList();
+            });
+        }
+        const resetBtn = document.getElementById('karaoke-reset-btn');
+        if(resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                localStorage.removeItem('demo_queue');
+                document.getElementById('obs-now-playing').textContent = "待機中...";
+                updateDashboardList();
+            });
+        }
         document.querySelectorAll('.q-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.getElementById('karaoke-song').value = e.target.getAttribute('data-song');
@@ -114,26 +134,35 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDashboardList();
     }
 
-    /* --- 6. Living Studio --- */
-    if (document.getElementById('outside-view')) {
-        const out = document.getElementById('outside-view'), room = document.getElementById('room-foreground');
-        const setEnv = (mode) => {
-            out.style.backgroundImage = `url('images2/${mode}b.png')`;
-            room.style.backgroundImage = `url('images2/${mode}a.png')`;
-            out.style.filter = `brightness(${mode==='day'?1.0:0.4})`;
-            document.querySelectorAll('.env-btn').forEach(b=>b.classList.remove('active'));
-            document.getElementById(`env-${mode}-btn`).classList.add('active');
+    /* --- 7. TOOLS：Living Studio --- */
+    const outView = document.getElementById('outside-view');
+    const roomView = document.getElementById('room-foreground');
+    if (outView && roomView) {
+        const envBtns = document.querySelectorAll('.living-controls .env-btn');
+        const setEnvironment = (time, theme) => {
+            const brightness = (time === 'day') ? 1.0 : 0.4;
+            const fgSuffix = (theme === 'western') ? 'aa' : 'a'; 
+            const bgSuffix = (theme === 'western') ? 'bb' : 'b'; 
+            outView.style.backgroundImage = `url('images2/${time}${bgSuffix}.png')`;
+            roomView.style.backgroundImage = `url('images2/${time}${fgSuffix}.png')`;
+            outView.style.filter = `brightness(${brightness})`;
+            envBtns.forEach(btn => {
+                if (btn.getAttribute('data-time') === time && btn.getAttribute('data-theme') === theme) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         };
-        setEnv('day');
-        document.getElementById('env-day-btn').addEventListener('click', () => setEnv('day'));
-        document.getElementById('env-night-btn').addEventListener('click', () => setEnv('night'));
-        window.addEventListener('keydown', (e) => {
-            if(e.key.toLowerCase()==='d') setEnv('day');
-            if(e.key.toLowerCase()==='n') setEnv('night');
+        setEnvironment('day', 'neon'); // 初期化
+        envBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setEnvironment(btn.getAttribute('data-time'), btn.getAttribute('data-theme'));
+            });
         });
     }
 
-    /* --- 7. 時計ステーション --- */
+    /* --- 8. TOOLS：時計ステーション --- */
     if (document.getElementById('clock-hour-hand')) {
         const hHand = document.getElementById('clock-hour-hand'), mHand = document.getElementById('clock-minute-hand'), sHand = document.getElementById('clock-second-hand');
         const nDate = document.getElementById('neon-date'), nTime = document.getElementById('neon-time'), nDay = document.getElementById('neon-day');
@@ -151,9 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    /* --- 8. 📅 配信予定表ジェネレーター --- */
-    // ★バグ修正: IDをHTML(tools.html)と完全に一致させました
-    const dynamicInputsContainer = document.getElementById('dynamic-inputs'); 
+    /* --- 9. TOOLS：📅 予定表ジェネレーター --- */
+    const dynamicInputsContainer = document.getElementById('dynamic-inputs-area'); 
     if (dynamicInputsContainer) {
         const viewGridContainer = document.getElementById('view-grid');
         const daysDef = [
@@ -185,11 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return html + `</div></div>`;
         }
 
-        // 動的フォーム・プレビュー生成
-        // ★バグ修正: 全てのループで "daysDef" を使用するように修正
         daysDef.forEach((day, index) => {
             const defData = defaultSchedule[day.key], isSplit = defData.layout === 'split';
-            
             const dayContainer = document.createElement('div');
             dayContainer.className = 'day-input-container';
             dayContainer.innerHTML = `<div class="form-group-header"><label style="color:#2c3e50;">${day.label} の設定</label><button type="button" class="btn-reset-each" data-day="${day.key}">リセット</button></div>
@@ -213,7 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
             viewGridContainer.appendChild(box);
         });
 
-        // 自由記入枠
         const freeBox = document.createElement('div');
         freeBox.className = 'day-box free-space';
         freeBox.innerHTML = `<div class="day-name" id="view-free-label">NOTE</div><div class="slot-text" id="view-free-content"></div>`;
@@ -242,7 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
             else { updateSlotPreview(dayKey, 'full'); }
         }
 
-        // 入力監視とイベント設定
         dynamicInputsContainer.addEventListener('click', (e) => {
             const layoutBtn = e.target.closest('.btn-layout-switch');
             if (layoutBtn) {
@@ -283,7 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 立ち絵・アバター画像処理
         const scheduleAvatar = document.getElementById('schedule-avatar');
         document.getElementById('input-avatar').addEventListener('change', (e) => {
             const file = e.target.files[0];
@@ -294,7 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     scheduleAvatar.style.display = 'block';
                     document.getElementById('avatar-controls').style.display = 'block';
                     scheduleAvatar.style.transform = `translate(0px, 0px) scale(1.0)`;
-                    // バグ回避: スライダーの初期化
                     document.getElementById('avatar-scale').value = 1.0;
                     document.getElementById('avatar-x').value = 0;
                     document.getElementById('avatar-y').value = 0;
@@ -307,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         ['avatar-scale','avatar-x','avatar-y'].forEach(id => document.getElementById(id).addEventListener('input', updateAvatar));
 
-        // 基本テキスト同期
         ['input-title', 'input-period', 'input-free-label', 'input-free-content'].forEach(id => {
             document.getElementById(id).addEventListener('input', (e) => {
                 document.getElementById(id.replace('input', 'view')).innerText = e.target.value;
@@ -316,10 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if(inputEl) document.getElementById(id.replace('input', 'view')).innerText = inputEl.value;
         });
 
-        // 初期化: daysDefを使用して初期状態を反映
         daysDef.forEach(d => updateDayLayout(d.key, defaultSchedule[d.key].layout));
 
-        // デザイン＆カラー設定
         document.getElementById('design-selector').addEventListener('click', e => {
             if(!e.target.classList.contains('btn-select')) return;
             e.target.parentElement.querySelectorAll('.btn-select').forEach(b=>b.classList.remove('active'));
@@ -359,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
             html2canvas(cloneCard, { scale: 2, useCORS: true, logging: false, backgroundColor: null, width: 1280, height: 720 }).then(canvas => {
                 const link = document.createElement('a');
                 const periodText = document.getElementById('input-period').value.replace(/[\s./:-]/g, '_') || 'demo';
-                link.download = `schedule_${periodText}.png`; // PNGとして保存
+                link.download = `schedule_${periodText}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
                 document.body.removeChild(cloneCard);
@@ -376,8 +394,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         document.getElementById('btn-clear-all').addEventListener('click', () => {
             if(!confirm('すべて初期化しますか？')) return;
-            document.querySelectorAll('#dynamic-inputs input[type="text"]').forEach(i => i.value='');
+            document.querySelectorAll('#dynamic-inputs-area input[type="text"]').forEach(i => i.value='');
             daysDef.forEach(d => document.querySelector(`.btn-reset-each[data-day="${d.key}"]`).click());
         });
     }
-});ｓ
+});

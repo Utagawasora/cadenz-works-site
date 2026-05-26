@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MSGW2SCH');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | CadenzWorks</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSGW2SCH"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSGW2SCH"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div class="bg-video-container">
+<div class="bg-video-container">
         <video class="bg-video" src="images/sky.mp4" autoplay loop muted playsinline></video>
         <div class="bg-video-overlay"></div>
     </div>
@@ -49,19 +45,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="page-body">
                 <p>お仕事のご依頼、ご相談は以下のフォーム、またはお問い合わせ窓口からお気軽にご連絡ください。<br>
                 まだメールフォーム完成していないのでご連絡は info@cadenzworks.comにおねがいします。</p>
-                <p>メールフォームはまだご利用いただけません。ご了承ください。</p>
-                <form class="dummy-form" onsubmit="return false;" style="margin-top: 30px;">
+                <p>※以下のフォームからお使いのメールソフトを起動して送信することも可能です。</p>
+                <form class="dummy-form" style="margin-top: 30px;">
                     <div class="form-group">
                         <label for="name">お名前 / 企業名</label>
-                        <input type="text" id="name" placeholder="Takaki">
+                        <input type="text" id="name" placeholder="Takaki" required>
                     </div>
                     <div class="form-group">
                         <label for="email">メールアドレス</label>
-                        <input type="email" id="email" placeholder="example@cadenzworks.com">
+                        <input type="email" id="email" placeholder="example@cadenzworks.com" required>
                     </div>
                     <div class="form-group">
                         <label for="message">メッセージ</label>
-                        <textarea id="message" rows="5" placeholder="ご用件をお書きください。"></textarea>
+                        <textarea id="message" rows="5" placeholder="ご用件をお書きください。" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">送信する</button>
                 </form>

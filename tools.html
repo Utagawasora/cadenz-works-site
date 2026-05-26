@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MSGW2SCH');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tools | CadenzWorks</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSGW2SCH"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSGW2SCH"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div class="bg-video-container">
+<div class="bg-video-container">
         <video class="bg-video" src="images/sky.mp4" autoplay loop muted playsinline></video>
         <div class="bg-video-overlay"></div>
     </div>
@@ -109,8 +105,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3>Living Studio (Trial)</h3>
                     <div class="tool-app-box living-box">
                         <div class="living-controls">
-                            <button class="env-btn active" id="env-day-btn">☀️ 昼モード</button>
-                            <button class="env-btn" id="env-night-btn">🌙 夜モード</button>
+                            <button class="env-btn active" data-time="day" data-theme="neon">☀️ 昼(ネオン)</button>
+                            <button class="env-btn" data-time="day" data-theme="western">☀️ 昼(洋室)</button>
+                            <button class="env-btn" data-time="night" data-theme="neon">🌙 夜(ネオン)</button>
+                            <button class="env-btn" data-time="night" data-theme="western">🌙 夜(洋室)</button>
                         </div>
                         <div class="living-stage-window">
                             <div id="outside-view"></div><div id="room-foreground"></div>
@@ -231,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="gen-section-header">
                                     <div class="section-title">各曜日のスケジュール</div>
                                 </div>
-                                <div id="dynamic-inputs"></div>
+                                <div id="dynamic-inputs-area"></div>
                                 
                                 <div class="gen-section-header">
                                     <div class="section-title">自由記入欄(左下NOTE枠)</div>
@@ -242,7 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                                 <div class="gen-form-group">
                                     <label for="input-free-content">内容</label>
-                                    <textarea id="input-free-content" class="form-control" rows="2">#うたがわらいぶ&#13;今週も働くぞ！</textarea>
+                                    <textarea id="input-free-content" class="form-control" rows="2">#うたがわらいぶ&#13;今週もよろしくね！</textarea>
                                 </div>
                             </div>
                             
@@ -264,7 +262,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </div>
                                 </div>
                                 <div class="gen-action-area">
-                                    <button class="btn-save-png" id="btn-download">PNG画像として保存</button>
+                                    <button class="btn-save-png" id="btn-download">PNG画像として保存（背景透過対応）</button>
                                 </div>
                             </div>
 
