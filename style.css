@@ -1334,10 +1334,11 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.subcounter-display[data-color="neon"] .subcounter-bar-fill,
+.subcounter-display[data-color="neon"] .subcounter-bar-fill {
+    background-color: #00d2d3;
+}
 .subcounter-display[data-color="neon"] .subcounter-remaining strong {
     color: #00d2d3;
-    background-color: #00d2d3;
 }
 .subcounter-display[data-color="neon"] .subcounter-current {
     text-shadow: 0 0 12px rgba(0, 210, 211, 0.6);
@@ -1346,20 +1347,22 @@ body {
 .subcounter-display[data-color="pastel"] {
     background-color: #2a2430;
 }
-.subcounter-display[data-color="pastel"] .subcounter-bar-fill,
+.subcounter-display[data-color="pastel"] .subcounter-bar-fill {
+    background-color: #ffb6d9;
+}
 .subcounter-display[data-color="pastel"] .subcounter-remaining strong {
     color: #ffb6d9;
-    background-color: #ffb6d9;
 }
 
 .subcounter-display[data-color="elegant"] {
     background-color: #14120c;
     border-color: #3a331f;
 }
-.subcounter-display[data-color="elegant"] .subcounter-bar-fill,
+.subcounter-display[data-color="elegant"] .subcounter-bar-fill {
+    background-color: #d4af37;
+}
 .subcounter-display[data-color="elegant"] .subcounter-remaining strong {
     color: #d4af37;
-    background-color: #d4af37;
 }
 
 /* BPMタップカウンター */
