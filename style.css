@@ -729,7 +729,11 @@ body {
     border: 0;
 }
 
-.heisei-music-comment, .heisei-video-comment {
+.heisei-music-comment, .heisei-video-comment, .heisei-tip {
+    display: none;
+}
+
+.heisei-trivia-box, .heisei-footer-extra {
     display: none;
 }
 
@@ -2179,8 +2183,47 @@ body.heisei-mode .music-works-container, body.heisei-mode .video-works-container
 body.heisei-mode .music-sub-title { color: #ffff00 !important; font-size: 16px !important; border-bottom: 1px dashed #ffff00; padding-bottom: 4px; animation: flash 1.5s infinite; }
 body.heisei-mode .music-section-desc { color: #ffffff !important; font-size: 12px !important; }
 body.heisei-mode .video-responsive-box { padding-top: 0 !important; height: 240px !important; border: 4px inset #ffffff !important; border-radius: 0px !important; box-shadow: none !important; }
-body.heisei-mode .heisei-music-comment, body.heisei-mode .heisei-video-comment { display: block !important; background-color: #000000; border: 1px dotted #00ff00; padding: 10px; margin-top: 10px; font-size: 12px; color: #00ff00 !important; line-height: 1.6; }
-body.heisei-mode .heisei-music-comment .comment-heading, body.heisei-mode .heisei-video-comment .comment-heading { color: #ff00ff !important; font-weight: bold; margin-bottom: 5px; }
+body.heisei-mode .heisei-music-comment, body.heisei-mode .heisei-video-comment, body.heisei-mode .heisei-tip { display: block !important; background-color: #000000; border: 1px dotted #00ff00; padding: 10px; margin-top: 10px; font-size: 12px; color: #00ff00 !important; line-height: 1.6; }
+body.heisei-mode .heisei-music-comment .comment-heading, body.heisei-mode .heisei-video-comment .comment-heading, body.heisei-mode .heisei-tip .comment-heading { color: #ff00ff !important; font-weight: bold; margin-bottom: 5px; display: block; }
+
+/* 豆知識バー・フッター拡張情報（平成モード限定） */
+body.heisei-mode .heisei-trivia-box {
+    display: block !important;
+    width: 100%;
+    background-color: #000000;
+    color: #00ff00 !important;
+    border-top: 1px dashed #ff00ff;
+    border-bottom: 1px dashed #ff00ff;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-family: "MS Pゴシック", monospace;
+    text-align: center;
+}
+body.heisei-mode .heisei-trivia-box .trivia-label {
+    color: #ffff00 !important;
+    font-weight: bold;
+    margin-right: 8px;
+    animation: flash 1.2s infinite;
+}
+body.heisei-mode .heisei-footer-extra {
+    display: block !important;
+    margin-top: 12px;
+    font-size: 11px;
+    color: #00ffff !important;
+    line-height: 1.8;
+}
+body.heisei-mode .heisei-footer-extra .ranking-banner {
+    display: inline-block;
+    background-color: #000033;
+    border: 2px outset #ffff00;
+    color: #ffff00 !important;
+    padding: 4px 10px;
+    margin: 4px 0;
+    font-weight: bold;
+}
+body.heisei-mode .heisei-footer-extra .env-notice {
+    color: #ff00ff !important;
+}
 
 body.heisei-mode .funklove-shell { background: #000000 !important; border: 4px outset #ffffff !important; border-radius: 0px !important; }
 body.heisei-mode .funklove-hero { border-bottom-color: #ffffff !important; }

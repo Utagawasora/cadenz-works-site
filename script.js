@@ -17,17 +17,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --- 1. モード切り替え --- */
+    const heiseiTrivia = [
+        '💡このサイトは Internet Explorer 6 / 解像度800×600 での閲覧を推奨しています（嘘です）',
+        '💡管理人の好きな食べ物はカレーです。辛口派。',
+        '💡サイトBGMは実装していません。各自お好きな音楽プレイヤーで再生してください。',
+        '💡カウンターの数字は気分で増えたり増えなかったりします。',
+        '💡相互リンクは常に募集中！バナーは88×31推奨（古い）。',
+        '💡詩川ソラの新曲は大体締切2日前に完成します。',
+        '💡このモードは平常時のモダンデザインの中に紛れて生きています。見つけてくれてありがとう。',
+        '💡Toolsページのデモは全部本物のOBS用アセットの体験版です。',
+        '💡管理人は藝大声楽科出身ですが、今はコードを書いています。人生とは。',
+        '💡「カデンツ」は音楽用語で、和音の進行のことです。センスが良い屋号でしょう？',
+        '💡このサイトに掲示板はありません。感想はXへどうぞ。',
+        '💡NEWマークは自己申告制です。誰も管理していません。',
+        '💡配信をする人は休憩を取りましょう。ポモドーロタイマーもBOOTHで販売中です。',
+        '💡このダークモードボタンの「(??)」の意味は誰も知りません。',
+        '💡サイトのキリ番は特に何も起きません。踏んでも安全です。'
+    ];
+    const heiseiTriviaText = document.getElementById('heisei-trivia-text');
+    const showRandomTrivia = () => {
+        if (!heiseiTriviaText) return;
+        heiseiTriviaText.textContent = heiseiTrivia[Math.floor(Math.random() * heiseiTrivia.length)];
+    };
+
     const modeToggleBtn = document.getElementById('mode-toggle-btn');
     if (modeToggleBtn) {
         if (localStorage.getItem('site-mode') === 'heisei') {
             document.body.classList.add('heisei-mode');
             modeToggleBtn.textContent = 'MODERN MODEに戻す';
+            showRandomTrivia();
         }
         modeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('heisei-mode');
             if (document.body.classList.contains('heisei-mode')) {
                 localStorage.setItem('site-mode', 'heisei');
                 modeToggleBtn.textContent = 'MODERN MODEに戻す';
+                showRandomTrivia();
             } else {
                 localStorage.setItem('site-mode', 'modern');
                 modeToggleBtn.textContent = 'DARK MODE (??)';
