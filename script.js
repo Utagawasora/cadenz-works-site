@@ -414,4 +414,94 @@ document.addEventListener('DOMContentLoaded', () => {
             daysDef.forEach(d => document.querySelector(`.btn-reset-each[data-day="${d.key}"]`).click());
         });
     }
+
+    /* --- 10. TOOLS：登録者数目標カウンター --- */
+    const subCurrentInput = document.getElementById('sub-current');
+    if (subCurrentInput) {
+        const subGoalInput = document.getElementById('sub-goal');
+        const subDisplay = document.getElementById('subcounter-display');
+        const subCurrentView = document.getElementById('subcounter-current-view');
+        const subBarFill = document.getElementById('subcounter-bar-fill');
+        const subRemainingWrap = document.getElementById('subcounter-remaining');
+        const subRemainingNum = document.getElementById('subcounter-remaining-num');
+
+        const updateSubCounter = () => {
+            const current = Math.max(0, parseInt(subCurrentInput.value, 10) || 0);
+            const goal = Math.max(1, parseInt(subGoalInput.value, 10) || 1);
+            const remaining = goal - current;
+            const percent = Math.min(100, Math.max(0, (current / goal) * 100));
+
+            subCurrentView.innerHTML = `${current.toLocaleString()}<span>人</span>`;
+            subBarFill.style.width = `${percent}%`;
+
+            if (remaining <= 0) {
+                subRemainingWrap.innerHTML = '🎉 目標達成！';
+            } else {
+                subRemainingNum.textContent = remaining.toLocaleString();
+                subRemainingWrap.innerHTML = `あと <strong id="subcounter-remaining-num">${remaining.toLocaleString()}</strong> 人で目標達成！`;
+            }
+        };
+
+        subCurrentInput.addEventListener('input', updateSubCounter);
+        subGoalInput.addEventListener('input', updateSubCounter);
+
+        document.querySelectorAll('#subcounter-color-selector .btn-select').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#subcounter-color-selector .btn-select').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                subDisplay.setAttribute('data-color', btn.getAttribute('data-value'));
+            });
+        });
+
+        updateSubCounter();
+    }
+
+    /* --- 11. TOOLS：BPMタップカウンター --- */
+    const bpmTapBtn = document.getElementById('bpm-tap-btn');
+    if (bpmTapBtn) {
+        const bpmValueEl = document.getElementById('bpm-value');
+        const bpmScreen = document.getElementById('bpm-screen');
+        let tapTimes = [];
+        let bpmResetTimer = null;
+
+        const registerTap = () => {
+            const now = Date.now();
+            tapTimes.push(now);
+            if (tapTimes.length > 8) tapTimes.shift();
+
+            if (tapTimes.length >= 2) {
+                const intervals = [];
+                for (let i = 1; i < tapTimes.length; i++) intervals.push(tapTimes[i] - tapTimes[i - 1]);
+                const avgInterval = intervals.reduce((a, b) => a + b, 0) / intervals.length;
+                const bpm = Math.round(60000 / avgInterval);
+                bpmValueEl.textContent = String(Math.min(bpm, 999)).padStart(3, '0');
+            }
+
+            clearTimeout(bpmResetTimer);
+            bpmResetTimer = setTimeout(() => {
+                tapTimes = [];
+                bpmValueEl.textContent = '000';
+            }, 5000);
+        };
+
+        bpmTapBtn.addEventListener('click', registerTap);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code !== 'Space') return;
+            const tag = document.activeElement ? document.activeElement.tagName : '';
+            if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+            const bpmPanel = document.getElementById('bpm-counter');
+            if (!bpmPanel || !bpmPanel.classList.contains('active')) return;
+            e.preventDefault();
+            registerTap();
+        });
+
+        document.querySelectorAll('#bpm-color-selector .btn-select').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#bpm-color-selector .btn-select').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                bpmScreen.setAttribute('data-color', btn.getAttribute('data-value'));
+            });
+        });
+    }
 });

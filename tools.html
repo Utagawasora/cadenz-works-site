@@ -65,6 +65,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <button class="tool-tab-btn" data-tool-tab="living-studio">🖼️ Living Studio背景</button>
                 <button class="tool-tab-btn" data-tool-tab="analog-clock">⏰ 配信時計ステーション</button>
                 <button class="tool-tab-btn" data-tool-tab="schedule-generator">📅 配信予定表ジェネレーター</button>
+                <button class="tool-tab-btn" data-tool-tab="sub-counter">🎯 登録者数目標カウンター</button>
+                <button class="tool-tab-btn" data-tool-tab="bpm-counter">🎚️ BPMタップカウンター</button>
             </div>
 
             <div class="page-body">
@@ -287,6 +289,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="ad-box">
                             <p>✨ もっとカスタマイズしたい！オフライン版で快適に使いたい方は製品版へ</p>
                             <a href="https://utagawaya3.booth.pm/items/8661935" target="_blank">BOOTHで製品版をチェックする</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sub-counter" class="tool-tab-panel">
+                    <h3>Subscriber Goal Counter (Demo)</h3>
+                    <p class="tool-description-text">登録者数と目標を入力すると、あと何人で目標達成かをゲージ付きで表示します。配信画面にそのまま置ける登録者数カウンターのデモです。</p>
+                    <div class="tool-app-box subcounter-box">
+                        <div class="subcounter-inputs">
+                            <div class="gen-form-group">
+                                <label for="sub-current">現在の登録者数</label>
+                                <input type="number" id="sub-current" class="form-control" value="4820" min="0">
+                            </div>
+                            <div class="gen-form-group">
+                                <label for="sub-goal">目標登録者数</label>
+                                <input type="number" id="sub-goal" class="form-control" value="5000" min="1">
+                            </div>
+                        </div>
+
+                        <div class="design-select-buttons subcounter-color-selector" id="subcounter-color-selector">
+                            <div class="btn-select active" data-value="red">Standard Red</div>
+                            <div class="btn-select" data-value="neon">Neon</div>
+                            <div class="btn-select" data-value="pastel">Pastel</div>
+                            <div class="btn-select" data-value="elegant">Elegant</div>
+                        </div>
+
+                        <div class="subcounter-display" id="subcounter-display" data-color="red">
+                            <div class="subcounter-current" id="subcounter-current-view">4,820<span>人</span></div>
+                            <div class="subcounter-bar-track"><div class="subcounter-bar-fill" id="subcounter-bar-fill"></div></div>
+                            <div class="subcounter-remaining" id="subcounter-remaining">あと <strong id="subcounter-remaining-num">180</strong> 人で目標達成！</div>
+                        </div>
+
+                        <div class="ad-box">
+                            <p>✨ 目標までの残り人数を自動表示できる本格版はこちら！ネオン・パステル・エレガントなど追加デザインも。</p>
+                            <a href="https://utagawaya3.booth.pm/items/8189105" target="_blank">BOOTHで製品版をチェックする</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bpm-counter" class="tool-tab-panel">
+                    <h3>Cyber Neon BPM Counter (Demo)</h3>
+                    <p class="tool-description-text">「TAP」ボタンを連打、またはこのタブを開いた状態でスペースキーを押すとBPMを計測します。5秒操作がないと自動で000に戻ります。</p>
+                    <div class="tool-app-box bpm-box">
+                        <div class="bpm-color-controls" id="bpm-color-selector">
+                            <button type="button" class="btn-select active" data-value="white">White</button>
+                            <button type="button" class="btn-select" data-value="blue">Blue</button>
+                            <button type="button" class="btn-select" data-value="pink">Pink</button>
+                            <button type="button" class="btn-select" data-value="green">Green</button>
+                            <button type="button" class="btn-select" data-value="purple">Purple</button>
+                        </div>
+
+                        <div class="bpm-display-screen" id="bpm-screen" data-color="white">
+                            <div class="bpm-value" id="bpm-value">000</div>
+                            <div class="bpm-label">BPM</div>
+                        </div>
+
+                        <button type="button" class="bpm-tap-btn" id="bpm-tap-btn">TAP</button>
+
+                        <div class="ad-box">
+                            <p>✨ ネオン時計とデザインを統一した本格版（全5色）はこちら！</p>
+                            <a href="https://utagawaya3.booth.pm/items/7935490" target="_blank">BOOTHで製品版をチェックする</a>
                         </div>
                     </div>
                 </div>

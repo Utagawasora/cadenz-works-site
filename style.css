@@ -1263,6 +1263,171 @@ body {
     margin-top: 8px;
 }
 
+/* 登録者数目標カウンター */
+.subcounter-inputs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.subcounter-inputs .gen-form-group {
+    flex: 1;
+    min-width: 160px;
+    margin-bottom: 0;
+}
+
+.subcounter-color-selector {
+    margin-bottom: 25px;
+}
+
+.subcounter-display {
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    transition: background-color 0.3s var(--ease);
+}
+
+.subcounter-current {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 44px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.subcounter-current span {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 6px;
+}
+
+.subcounter-bar-track {
+    width: 100%;
+    height: 14px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.subcounter-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    background-color: #ff4757;
+    transition: width 0.4s var(--ease), background-color 0.3s var(--ease);
+}
+
+.subcounter-remaining {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.subcounter-remaining strong {
+    color: #ff4757;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.subcounter-display[data-color="neon"] .subcounter-bar-fill,
+.subcounter-display[data-color="neon"] .subcounter-remaining strong {
+    color: #00d2d3;
+    background-color: #00d2d3;
+}
+.subcounter-display[data-color="neon"] .subcounter-current {
+    text-shadow: 0 0 12px rgba(0, 210, 211, 0.6);
+}
+
+.subcounter-display[data-color="pastel"] {
+    background-color: #2a2430;
+}
+.subcounter-display[data-color="pastel"] .subcounter-bar-fill,
+.subcounter-display[data-color="pastel"] .subcounter-remaining strong {
+    color: #ffb6d9;
+    background-color: #ffb6d9;
+}
+
+.subcounter-display[data-color="elegant"] {
+    background-color: #14120c;
+    border-color: #3a331f;
+}
+.subcounter-display[data-color="elegant"] .subcounter-bar-fill,
+.subcounter-display[data-color="elegant"] .subcounter-remaining strong {
+    color: #d4af37;
+    background-color: #d4af37;
+}
+
+/* BPMタップカウンター */
+.bpm-color-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.bpm-display-screen {
+    background-color: #0b0c10;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 25px;
+    border: 1px solid #222;
+}
+
+.bpm-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffffff;
+    -webkit-text-stroke: 1.5px #000000;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.7);
+    line-height: 1;
+}
+
+.bpm-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8px;
+}
+
+.bpm-display-screen[data-color="blue"] .bpm-value { color: #4fc3ff; text-shadow: 0 0 16px rgba(79, 195, 255, 0.8); }
+.bpm-display-screen[data-color="pink"] .bpm-value { color: #ff5fd0; text-shadow: 0 0 16px rgba(255, 95, 208, 0.8); }
+.bpm-display-screen[data-color="green"] .bpm-value { color: #4dffb0; text-shadow: 0 0 16px rgba(77, 255, 176, 0.8); }
+.bpm-display-screen[data-color="purple"] .bpm-value { color: #b47aff; text-shadow: 0 0 16px rgba(180, 122, 255, 0.8); }
+
+.bpm-tap-btn {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 18px;
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.1s var(--ease), background-color 0.2s var(--ease);
+}
+
+.bpm-tap-btn:hover {
+    background-color: #262626;
+}
+
+.bpm-tap-btn:active {
+    transform: scale(0.97);
+}
+
 /* Living Studio */
 .living-controls {
     display: flex;
