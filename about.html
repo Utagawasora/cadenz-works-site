@@ -9,6 +9,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | CadenzWorks</title>
+    <meta name="description" content="CadenzWorks代表・Takakiのプロフィールと沿革、対応可能な業務、使用機材、保有資格をご紹介します。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About | CadenzWorks">
+    <meta property="og:description" content="CadenzWorks代表・Takakiのプロフィールと沿革、対応可能な業務をご紹介します。">
+    <meta property="og:image" content="https://cadenzworks.com/images/logo.png">
+    <meta property="og:url" content="https://cadenzworks.com/about.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,10 +34,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="index.html" class="logo-link">
                 <img src="images/logo.png" alt="CadenzWorks" class="site-logo-img">
             </a>
-            <div class="nav-area">
+            <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-area">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-area" id="nav-area">
                 <nav class="nav-links">
                     <a href="index.html">Top</a>
-                    <a href="about.html">About</a>
+                    <a href="about.html" class="active" aria-current="page">About</a>
                     <a href="works.html">Works</a>
                     <a href="funklove.html">FunkLove</a>
                     <a href="tools.html">Tools</a>
@@ -45,33 +56,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="page-body">
                 <p>CadenzWorksはインターネット何でも屋です。</p>
                 <p>楽曲制作、Web制作、画像編集、広告運用、アーティストのプロデュースなどインターネットに関わる全てのことを一気通貫でサポートしています。</p>
-                <br>
                 <p>現役広告コンサルタントの立場からのマーケティングと、シンガーソングライター・バンドマンとしてのセンスを融合させ、ハイクオリティなコンテンツをお届けします。</p>
             </div>
-            <div class="page-body" style="margin-top: 40px;">
-                <p><strong>CadenzWorksの歩み</strong></p>
-                <br>
-                <p>2026年 CadenzWorksに屋号を変更。居住地を埼玉県から長崎県に移す。</p>
-                <p>2024年 UtagawaStudioとして楽曲制作やHP制作、ブライダル系の動画編集などクリエイティブ制作を開始</p>
-                <p>2020年 詩川天楽 活動開始</p>
-            </div>
-            <div class="page-body" style="margin-top: 40px;">
-                <p><strong>CadenzWorksができること</strong></p>
-                <p>HP制作 バナー、ロゴデザインなどのクリエイティブ素材の制作 動画編集 楽曲制作(作詞作曲、カラオケ制作)<br>
-                     Google、yahoo,X,metaなどの広告運用、アーティストのプロデュース及びマーケティング支援、イベントMCなど。 </p>
-            </div>
-            <div class="page-body" style="margin-top: 40px;">
-                <p><strong>主な使用機材</strong></p>
-                <p>楽曲制作 StudioOnePro LogicProX
-                <br>動画制作 FainalCutPro Premier AfterEffect Motion6
-                <br>画像編集 Illustrator、Photoshop、クリップスタジオペイント
-                <br>Web制作 Vscode Wordpress FireBase</p>
-            </div>
-            <div class="page-body" style="margin-top: 40px;">
-                <p><strong>資格</strong></p>
-                <p>Google広告の検索広告認定資格
-                <br>Google広告の測定認定資格
-                <br>Google広告クリエイティブ認定資格</p>
+
+            <div class="about-grid">
+                <section class="about-card">
+                    <h3>CadenzWorksの歩み</h3>
+                    <ul class="about-timeline">
+                        <li><span class="about-year">2026年</span>CadenzWorksに屋号を変更。居住地を埼玉県から長崎県に移す。</li>
+                        <li><span class="about-year">2024年</span>UtagawaStudioとして楽曲制作やHP制作、ブライダル系の動画編集などクリエイティブ制作を開始</li>
+                        <li><span class="about-year">2020年</span>詩川天楽 活動開始</li>
+                    </ul>
+                </section>
+
+                <section class="about-card">
+                    <h3>CadenzWorksができること</h3>
+                    <p>HP制作、バナー・ロゴデザインなどのクリエイティブ素材の制作、動画編集、楽曲制作(作詞作曲、カラオケ制作)、Google・Yahoo・X・Metaなどの広告運用、アーティストのプロデュース及びマーケティング支援、イベントMCなど。</p>
+                </section>
+
+                <section class="about-card">
+                    <h3>主な使用機材</h3>
+                    <ul class="about-tag-list">
+                        <li>Studio One Pro</li><li>Logic Pro X</li><li>Final Cut Pro</li><li>Premiere Pro</li><li>After Effects</li><li>Motion 6</li><li>Illustrator</li><li>Photoshop</li><li>クリップスタジオペイント</li><li>VSCode</li><li>WordPress</li><li>Firebase</li>
+                    </ul>
+                </section>
+
+                <section class="about-card">
+                    <h3>資格</h3>
+                    <ul class="about-tag-list">
+                        <li>Google広告の検索広告認定資格</li><li>Google広告の測定認定資格</li><li>Google広告クリエイティブ認定資格</li>
+                    </ul>
+                </section>
             </div>
         </main>
         <footer class="main-footer">

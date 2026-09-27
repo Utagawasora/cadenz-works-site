@@ -9,6 +9,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | CadenzWorks</title>
+    <meta name="description" content="CadenzWorksへのお仕事のご依頼・ご相談はこちらから。楽曲制作、Web制作、映像編集など各種クリエイティブ制作を承っております。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact | CadenzWorks">
+    <meta property="og:description" content="お仕事のご依頼・ご相談はこちらから。">
+    <meta property="og:image" content="https://cadenzworks.com/images/logo.png">
+    <meta property="og:url" content="https://cadenzworks.com/contact.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,14 +34,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="index.html" class="logo-link">
                 <img src="images/logo.png" alt="CadenzWorks" class="site-logo-img">
             </a>
-            <div class="nav-area">
+            <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-area">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-area" id="nav-area">
                 <nav class="nav-links">
                     <a href="index.html">Top</a>
                     <a href="about.html">About</a>
                     <a href="works.html">Works</a>
                     <a href="funklove.html">FunkLove</a>
                     <a href="tools.html">Tools</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="contact.html" class="active" aria-current="page">Contact</a>
                 </nav>
                 <div class="mode-toggle-container">
                     <button id="mode-toggle-btn" class="toggle-btn">DARK MODE (??)</button>
@@ -46,7 +57,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p>お仕事のご依頼、ご相談は以下のフォーム、またはお問い合わせ窓口からお気軽にご連絡ください。<br>
                 まだメールフォーム完成していないのでご連絡は info@cadenzworks.comにおねがいします。</p>
                 <p>※以下のフォームからお使いのメールソフトを起動して送信することも可能です。</p>
-                <form class="dummy-form" style="margin-top: 30px;">
+                <form class="dummy-form">
                     <div class="form-group">
                         <label for="name">お名前 / 企業名</label>
                         <input type="text" id="name" placeholder="Takaki" required>

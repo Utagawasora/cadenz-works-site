@@ -9,6 +9,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunkLove | CadenzWorks</title>
+    <meta name="description" content="詩川ソラの公式メンバーシップ「FunkLove」。限定記事や先行音源、Discordコミュニティなど、応援プランに応じた特典をご用意しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FunkLove | CadenzWorks">
+    <meta property="og:description" content="詩川ソラの公式メンバーシップ「FunkLove」の特典と応援プランのご案内。">
+    <meta property="og:image" content="https://cadenzworks.com/images/logo.png">
+    <meta property="og:url" content="https://cadenzworks.com/funklove.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,12 +34,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="index.html" class="logo-link">
                 <img src="images/logo.png" alt="CadenzWorks" class="site-logo-img">
             </a>
-            <div class="nav-area">
+            <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-area">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-area" id="nav-area">
                 <nav class="nav-links">
                     <a href="index.html">Top</a>
                     <a href="about.html">About</a>
                     <a href="works.html">Works</a>
-                    <a href="funklove.html">FunkLove</a>
+                    <a href="funklove.html" class="active" aria-current="page">FunkLove</a>
                     <a href="tools.html">Tools</a>
                     <a href="contact.html">Contact</a>
                 </nav>
@@ -68,7 +79,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                 </div>
-                <div class="btn-area" style="text-align: center; margin-top: 50px;">
+                <div class="btn-area">
                     <a href="https://note.com/utagawasora/membership/info" target="_blank" class="cta-button">FunkLoveに参加して特典を受け取る（note.comのメンバーシップへ遷移します）</a>
                 </div>
             </div>

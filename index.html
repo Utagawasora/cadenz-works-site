@@ -9,6 +9,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CadenzWorks | Top</title>
+    <meta name="description" content="CadenzWorks（カデンツワークス）は音楽制作・映像編集・サムネイルデザイン・HP制作を一手に担うクリエイティブスタジオです。VTuber・配信者向けアセットの開発も行っています。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CadenzWorks | Creative Sound & Visual">
+    <meta property="og:description" content="音楽制作、映像編集、サムネイルデザイン、HP制作を一手に担うクリエイティブスタジオ CadenzWorks。">
+    <meta property="og:image" content="https://cadenzworks.com/images/logo.png">
+    <meta property="og:url" content="https://cadenzworks.com/">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,9 +36,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="index.html" class="logo-link">
                 <img src="images/logo.png" alt="CadenzWorks" class="site-logo-img">
             </a>
-            <div class="nav-area">
+            <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-area">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-area" id="nav-area">
                 <nav class="nav-links">
-                    <a href="index.html">Top</a>
+                    <a href="index.html" class="active" aria-current="page">Top</a>
                     <a href="about.html">About</a>
                     <a href="works.html">Works</a>
                     <a href="funklove.html">FunkLove</a>
@@ -54,9 +65,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-            <div class="top-content-area page-body" style="margin-top: 60px; display: flex; flex-direction: column; gap: 50px;">
+            <div class="top-content-area page-body">
                 <section class="top-intro">
-                    <h2 style="font-size: 28px; margin-bottom: 20px; border-bottom: 2px solid #111; padding-bottom: 10px;">Welcome to CadenzWorks</h2>
+                    <h2>Welcome to CadenzWorks</h2>
                     <p>CadenzWorks（カデンツワークス）は、藝大声楽科卒のバリトンであるHirakobaTakakiが運営するクリエイティブスタジオです。<br>
                     シンガーソングライター詩川ソラのプロデュースも行っています。</p>
                     <p>楽曲制作、Web制作、映像編集から、VTuber・配信者向けの高機能アセット（OBS素材・ジェネレーター等）の開発まで、インターネットにおけるクリエイティブを一気通貫でサポートいたします。<br>
@@ -64,12 +75,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </section>
 
                 <section class="top-news">
-                    <h2 style="font-size: 24px; margin-bottom: 20px;">News & Updates</h2>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;"><strong>2026.06.01</strong> - Toolsページにて「配信予定表ジェネレーター」のWebデモを公開しました。</li>
-                        <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;"><strong>2026.06.02</strong> - 時間で明るさが変わる「Living Studio」の体験版を実装しました。</li>
-                        <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;"><strong>2026.05.26</strong> - CadenzWorks ポートフォリオサイトをリニューアルオープン！</li>
-                        <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;"><strong>2024.03.31</strong> 東京藝術大学音楽学部声楽科を卒業。</li>
+                    <h2>News & Updates</h2>
+                    <ul class="news-list">
+                        <li class="news-item"><span class="news-date">2026.06.01</span><span>Toolsページにて「配信予定表ジェネレーター」のWebデモを公開しました。</span></li>
+                        <li class="news-item"><span class="news-date">2026.06.02</span><span>時間で明るさが変わる「Living Studio」の体験版を実装しました。</span></li>
+                        <li class="news-item"><span class="news-date">2026.05.26</span><span>CadenzWorks ポートフォリオサイトをリニューアルオープン！</span></li>
+                        <li class="news-item"><span class="news-date">2024.03.31</span><span>東京藝術大学音楽学部声楽科を卒業。</span></li>
                     </ul>
                 </section>
             </div>

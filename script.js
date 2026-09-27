@@ -1,5 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* --- 0. モバイルナビ（ハンバーガーメニュー） --- */
+    const navToggle = document.getElementById('nav-toggle');
+    const navArea = document.getElementById('nav-area');
+    if (navToggle && navArea) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navArea.classList.toggle('nav-open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        navArea.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navArea.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
     /* --- 1. モード切り替え --- */
     const modeToggleBtn = document.getElementById('mode-toggle-btn');
     if (modeToggleBtn) {

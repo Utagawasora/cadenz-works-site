@@ -9,6 +9,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Works | CadenzWorks</title>
+    <meta name="description" content="サムネイル制作、楽曲制作、映像制作、HP制作の実績をご紹介。CadenzWorksが手がけたクリエイティブ作品集です。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Works | CadenzWorks">
+    <meta property="og:description" content="サムネイル制作、楽曲制作、映像制作、HP制作の実績をご紹介。">
+    <meta property="og:image" content="https://cadenzworks.com/images/logo.png">
+    <meta property="og:url" content="https://cadenzworks.com/works.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,11 +34,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="index.html" class="logo-link">
                 <img src="images/logo.png" alt="CadenzWorks" class="site-logo-img">
             </a>
-            <div class="nav-area">
+            <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-area">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-area" id="nav-area">
                 <nav class="nav-links">
                     <a href="index.html">Top</a>
                     <a href="about.html">About</a>
-                    <a href="works.html">Works</a>
+                    <a href="works.html" class="active" aria-current="page">Works</a>
                     <a href="funklove.html">FunkLove</a>
                     <a href="tools.html">Tools</a>
                     <a href="contact.html">Contact</a>
