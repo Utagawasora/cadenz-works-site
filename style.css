@@ -859,12 +859,16 @@ body {
 
 .plan-card {
     position: relative;
+    display: block;
     flex: 1;
     background-color: #141414;
     border: 1px solid #262626;
     padding: 34px 30px;
     border-radius: 14px;
     text-align: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
     transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
@@ -1249,6 +1253,14 @@ body {
     color: #00ccff;
     text-decoration: none;
     font-weight: bold;
+}
+
+.ad-link-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    margin-top: 8px;
 }
 
 /* Living Studio */
